@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UndoList test should render UndoList 1`] = `ShallowWrapper {}`;

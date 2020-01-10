@@ -1,68 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React Todo Application TDD Workflow
 
-## Available Scripts
+## React
 
-In the project directory, you can run:
+```sh
+npx create-react-app my-app
+cd my-app
+npm start
+```
 
-### `npm start`
+- props: immutable, all React components must act like pure functions with respect to their props
+- state: is private and fully controlled by the component
+- unidirectional or top-down data flow
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## TDD
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The test should drive the development.
 
-### `npm test`
+  <img src="./screenshots/TDD.gif">
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ### Unit tests
 
-### `npm run build`
+  - validate the functionality of isolated code
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ### Integration tests
+  - verify the flow of data and the interaction of components
+- ### End-to-End (E2E) tests
+  - look at the behavior of the overall application.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Jest
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Enzyme
 
-### `npm run eject`
+Enzyme is a JavaScript Testing utility for React that makes it easier to test your React Components' output.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- #### Shallow 浅渲染 for unit test
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - Real unit test (isolation, no children render)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- #### Mount 全渲染 for intergration test
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  - Full rendering including child components. Requires a DOM (jsdom, domino). More constly in execution time.
 
-## Learn More
+* #### Snapshot
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  - toMatchSnapshot()
